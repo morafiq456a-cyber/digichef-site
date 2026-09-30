@@ -4,8 +4,8 @@ import { defineConfig } from "vite"
 import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/digichef-site/" : "/",
+export default defineConfig({
+  base: process.env.GITHUB_ACTIONS === "true" ? "/digichef-site/" : "/",
   plugins: [inspectAttr(), react()],
   server: {
     port: 3000,
@@ -15,4 +15,4 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-}));
+});
