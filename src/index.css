@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 83 40% 4%;
+    --foreground: 60 20% 94%;
+    --card: 83 30% 6%;
+    --card-foreground: 60 20% 94%;
+    --popover: 83 30% 6%;
+    --popover-foreground: 60 20% 94%;
+    --primary: 72 100% 50%;
+    --primary-foreground: 83 40% 4%;
+    --secondary: 80 14% 12%;
+    --secondary-foreground: 60 20% 94%;
+    --muted: 80 14% 12%;
+    --muted-foreground: 72 8% 68%;
+    --accent: 72 100% 50%;
+    --accent-foreground: 83 40% 4%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 60 10% 92% / 0.09;
+    --input: 60 10% 92% / 0.14;
+    --ring: 72 100% 50%;
+    --radius: 0.75rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-cream font-sans antialiased;
+    background-image: radial-gradient(
+      ellipse 80% 50% at 50% -10%,
+      rgba(210, 255, 0, 0.06),
+      transparent
+    );
+  }
+
+  ::selection {
+    background: #d2ff00;
+    color: #111112;
+  }
+
+  :focus-visible {
+    outline: 2px solid #d2ff00;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-line bg-white/[0.03];
+  }
+
+  .tag-chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1 text-xs font-medium text-sage;
+  }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-marquee,
+  .animate-float-slow {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Thin scrollbars for mockup scroll areas */
+.scroll-thin::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: rgba(244, 244, 237, 0.15);
+  border-radius: 999px;
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
