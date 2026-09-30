@@ -121,7 +121,7 @@ export default function Home() {
               {/* Floating QR card */}
               <div className="absolute -left-16 top-16 hidden rounded-2xl border border-line bg-ink-2/95 p-4 shadow-lime-glow backdrop-blur sm:block">
                 <img
-                  src="/qr-demo.svg"
+                  src={`${import.meta.env.BASE_URL}qr-demo.svg`}
                   alt="QR code linking to the Digichef live demo menu"
                   className="h-24 w-24 rounded-md bg-cream p-1.5"
                 />
